@@ -13,3 +13,6 @@ if __name__ == "__main__":
 
     print(my_filter.detect("昨日のアーセナルの試合アツかった！","ピー"))
     print(my_filter.detect("昨日のリバプールの試合アツかった！","ピー"))
+
+
+
