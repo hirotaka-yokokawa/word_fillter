@@ -13,9 +13,13 @@ class WordFilter:
     def detect(self, word):
         return self.my_filter in word
 
+    def censor(self, word):
+        if self.my_filter:
+            return word.replace(self.my_filter, "<censored>")
+
 
 if __name__ == "__main__":
     my_filter = WordFilter("アーセナル")
 
-    print(my_filter.detect("昨日のアーセナルの試合アツかった！"))
-    print(my_filter.detect("昨日のリバプールの試合アツかった！"))
+    print(my_filter.censor("昨日のアーセナルの試合アツかった！"))
+    print(my_filter.censor("昨日のリバプールの試合アツかった！"))
