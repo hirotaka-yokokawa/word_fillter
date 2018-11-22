@@ -9,21 +9,20 @@ class WordFilter:
             return text
 
 
-def ng_word():
+def ng_word_list():
     counter = 1
 
     while True:
-        NG_word = input("NGワード" + str(counter) + ":")
+        ng_word = (input("NGワード" + str(counter) + ":"))
         print("NGワードを設定しました｡")
+        if ng_word == "end":
+            break
         counter += 1
 
-        if NG_word == "end":
-            break
-
-        return NG_word
+        return ng_word
 
 
-my_filter = WordFilter((ng_word()))
+my_filter = WordFilter((ng_word_list()))
 
 print(my_filter.detect("昨日のアーセナルの試合アツかった！", "ピー"))
 print(my_filter.detect("昨日のリバプールの試合アツかった！", "ピー"))
