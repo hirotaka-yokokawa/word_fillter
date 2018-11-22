@@ -9,24 +9,24 @@ class WordFilter:
         return text
 
 
-def ng_word():
+def ng_word_list():
     counter = 1
-    list = []
+    ng_list = []
 
     while True:
-        NG_word = (input("NGワード" + str(counter) + ":"))
+        ng_word = (input("NGワード" + str(counter) + ":"))
         print("他にNGワードを設定しますか? y or n")
         yes_no = input()
-        list.append(NG_word)
+        ng_list.append(ng_word)
 
         if yes_no == "no":
             break
 
         counter += 1
 
-    return list
+    return ng_list
 
 
-my_filter = WordFilter((ng_word()))
+my_filter = WordFilter((ng_word_list()))
 print(my_filter.detect("昨日のアーセナルの試合アツかった！", "ピー"))
 print(my_filter.detect("昨日のリバプールの試合アツかった！", "ピー"))
