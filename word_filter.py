@@ -15,18 +15,22 @@ def ng_word_list():
 
     while True:
         ng_word = (input("NGワード" + str(counter) + ":"))
-        print("他にNGワードを設定しますか? y or n")
+        print("他にNGワードを設定しますか?(y/n)")
         yes_no = input()
         ng_list.append(ng_word)
 
-        if yes_no == "no":
+        if yes_no == "n":
             break
 
         counter += 1
 
     return ng_list
 
-
-my_filter = WordFilter((ng_word_list()))
-print(my_filter.detect("昨日のアーセナルの試合アツかった！", "ピー"))
-print(my_filter.detect("昨日のリバプールの試合アツかった！", "ピー"))
+repeat = "y"
+while repeat.lower() == 'y':
+    my_filter = WordFilter((ng_word_list()))
+    print(my_filter.detect("昨日のアーセナルの試合アツかった！", "ピー"))
+    print(my_filter.detect("昨日のリバプールの試合アツかった！", "ピー"))
+    repeat = input('フィルタリングをし直しますか?(y/n)')
+    if repeat.lower() == 'n':
+        break
